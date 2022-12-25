@@ -5,13 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerAction : MonoBehaviour
 {
+    public static PlayerAction instance;
     [SerializeField] Camera cam;
     PlayerInput input;
+    public bool checkTriggerZone;
+    public string triggerZoneName;
     public Vector2 mousePos;
     public Vector2 mouseWorldPos;
 
     private void Awake() 
     {
+        instance = this;
         input = new PlayerInput();
     }
     private void OnEnable() 
@@ -27,5 +31,18 @@ public class PlayerAction : MonoBehaviour
             mouseWorldPos = cam.ScreenToWorldPoint(mousePos);
             Debug.Log ("Left Clicked:" + mouseWorldPos);
         }
+    }
+
+    private string OnTriggerEnter2D(Collider2D other) 
+    {
+        Debug.Log ("Triggered" + other);
+        triggerZoneName = other.name;
+        return triggerZoneName;
+    }
+
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        Debug.Log ("Off Trigger");
+        triggerZoneName = "";
     }
 }

@@ -8,12 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int speed = 5;
     private Vector2 movement;
     private Rigidbody2D rb;
-    private Animator animator;
+    [SerializeField] private Animator []animators;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     private void OnMovement(InputValue value)
@@ -22,16 +21,28 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement.x != 0 || movement.y != 0)
         {
-            animator.SetFloat("X", movement.x);
-            animator.SetFloat("Y", movement.y);
+            for (int i = 0; i < animators.Length; i++)
+            {
+                if (animators[i] != null)
+                {
+                    animators[i].SetFloat("X", movement.x);
+                    animators[i].SetFloat("Y", movement.y);
 
-            animator.SetBool("IsWalking", true);
+                    animators[i].SetBool("IsWalking", true);
+                }  
+            }
+            
         }
         else
         {
-            animator.SetBool("IsWalking", false);
+            for (int i = 0; i < animators.Length; i++)
+            {
+                if (animators[i] != null)
+                {
+                    animators[i].SetBool("IsWalking", false);
+                }        
+            } 
         }
-        
     }
 
     private void FixedUpdate()
