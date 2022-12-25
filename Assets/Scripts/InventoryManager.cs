@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
 
     public InvnetorySlot[] invnetorySlots;
     public GameObject inventoryItemPrefab;
+    public InvnetorySlot slot;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class InventoryManager : MonoBehaviour
         //Find an empty slot
         for (int i = 0; i < invnetorySlots.Length; i++)
         {
-            InvnetorySlot slot = invnetorySlots[i];
+            slot = invnetorySlots[i];
             BasketItem itemInSlot = slot.GetComponentInChildren<BasketItem>();
 
             if(itemInSlot == null)
@@ -51,6 +52,12 @@ public class InventoryManager : MonoBehaviour
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform); 
         BasketItem basketItem = newItemGo.GetComponent<BasketItem>();
+
+        /*if (basketItem.item.type == ItemType.Feet)
+        {
+ 
+        }*/
+
         basketItem.InitialiseItem(item);
     }
 }

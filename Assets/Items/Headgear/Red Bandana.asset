@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad5dbc3a10fc07478f5cc1f0d0c62a2, type: 3}
+  m_Name: Red Bandana
+  m_EditorClassIdentifier: 
+  cost: 15.5
+  type: 0
+  animation: {fileID: 9100000, guid: 9e83f02f315b216409cc88f67d656c0a, type: 2}
+  image: {fileID: 21300000, guid: 37cac9d2d522af14b88e0fb094c5aeea, type: 3}
