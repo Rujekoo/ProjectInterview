@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 38
   type: 3
+  state: 1
   animation: {fileID: 9100000, guid: b7273c15de160be4ea6a464b50e8e4a1, type: 2}
   image: {fileID: 21300000, guid: ca206c24ec76f454a8f66ef8a3f63f7d, type: 3}

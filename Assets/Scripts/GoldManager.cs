@@ -28,8 +28,9 @@ public class GoldManager : MonoBehaviour
     }
 
 
-    /*public void OnSliderChanged(float value)
+    public void UpdateGoldAmount ()
     {
-        goldText.text = value.ToString();
-    }*/
+        currentGoldAmount = currentGoldAmount - Shopkeeper.instance.totalGold;
+        RefreshGoldTracker(currentGoldAmount);
+    }
 }

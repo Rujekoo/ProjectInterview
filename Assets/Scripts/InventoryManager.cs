@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public InvnetorySlot[] invnetorySlots;
     public GameObject inventoryItemPrefab;
     public InvnetorySlot slot;
+    public GameObject player;
 
     private void Awake()
     {
@@ -59,5 +60,15 @@ public class InventoryManager : MonoBehaviour
         }*/
 
         basketItem.InitialiseItem(item);
+    }
+
+    public void PausePlayer ()
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+    }
+
+    public void ResumePlayer ()
+    {
+        player.GetComponent<PlayerMovement>().enabled = true;
     }
 }

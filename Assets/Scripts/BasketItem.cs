@@ -8,14 +8,21 @@ using UnityEngine.EventSystems;
 public class BasketItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
+    public static BasketItem instance;
+
     [Header("UI")]
     public Image image;
     public TextMeshProUGUI icon;
+    public GameObject boughtCheck;
 
     [HideInInspector] public Item item;
     [HideInInspector] public bool bought;
     [HideInInspector] public Transform parentAfterDrag;
 
+    private void Awake() 
+    {
+        instance = this;
+    }
 
     public void InitialiseItem(Item newItem)
     {
@@ -46,5 +53,10 @@ public class BasketItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     {
         image.raycastTarget = true;
         transform.SetParent(parentAfterDrag);
+    }
+
+    public Item GetItem()
+    {
+        return item;
     }
 }

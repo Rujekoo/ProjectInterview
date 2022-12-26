@@ -8,14 +8,11 @@ using UnityEditor.Animations;
 public class Item : ScriptableObject
 {
     
-
     [Header("Only gameplay")]
     public double cost;
     public ItemType type;
+    public ActionType state;
     public AnimatorController animation;
-    //public Vector2Int range = new Vector2Int(5, 4);
-    
-    //[Header("Only UI")]
 
     [Header("Both")]
     public Sprite image;
@@ -31,5 +28,6 @@ public enum ItemType
 
 public enum ActionType
 {
-
+    Bought,
+    Not
 }

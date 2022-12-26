@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 6684558790201237593}
   icon: {fileID: 3536926812232409928}
+  boughtCheck: {fileID: 1974396117047487244}
   item: {fileID: 0}
   bought: 0
   parentAfterDrag: {fileID: 0}

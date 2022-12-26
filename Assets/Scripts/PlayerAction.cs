@@ -29,20 +29,20 @@ public class PlayerAction : MonoBehaviour
         {
             mousePos = Mouse.current.position.ReadValue();
             mouseWorldPos = cam.ScreenToWorldPoint(mousePos);
-            Debug.Log ("Left Clicked:" + mouseWorldPos);
+            //Debug.Log ("Left Clicked:" + mouseWorldPos);
         }
     }
 
     private string OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log ("Triggered" + other);
+        //Debug.Log ("Triggered" + other);
         triggerZoneName = other.name;
         return triggerZoneName;
     }
 
     private void OnTriggerExit2D(Collider2D other) 
     {
-        Debug.Log ("Off Trigger");
+        //Debug.Log ("Off Trigger");
         triggerZoneName = "";
     }
 }

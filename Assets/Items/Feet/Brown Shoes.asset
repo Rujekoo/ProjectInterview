@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ad5dbc3a10fc07478f5cc1f0d0c62a2, type: 3}
-  m_Name: Brown Shoe
+  m_Name: Brown Shoes
   m_EditorClassIdentifier: 
   cost: 13
   type: 3
+  state: 1
   animation: {fileID: 9100000, guid: 18698f4cb686da4469c501b89015ffba, type: 2}
   image: {fileID: 21300000, guid: f8f31b17348af5d478342c80f0d492d2, type: 3}

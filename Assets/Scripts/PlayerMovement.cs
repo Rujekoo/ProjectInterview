@@ -5,13 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
     [SerializeField] private int speed = 5;
     private Vector2 movement;
     private Rigidbody2D rb;
-    [SerializeField] private Animator []animators;
+    [SerializeField] public Animator []animators;
 
     private void Awake()
     {
+        instance = this;
         rb = GetComponent<Rigidbody2D>();
     }
 
