@@ -10,7 +10,9 @@ public class Item : ScriptableObject
     
     [Header("Only gameplay")]
     public double cost;
+    public int count;
     public ItemType type;
+    public ActionType state;
     public AnimatorController animation;
 
     [Header("Both")]
@@ -23,5 +25,11 @@ public enum ItemType
     Torso,
     Legs,
     Feet
+}
+
+public enum ActionType
+{
+    Owned,
+    NotOwned
 }
 

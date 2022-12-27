@@ -20,6 +20,7 @@ public class InvnetorySlot : MonoBehaviour, IDropHandler
             basketItem.parentAfterDrag = transform;
 
             Item item = basketItem.GetItem();
+            OwnerIndicator.instance.SetOwnerIndicator();
 
             //Invokes the item drop and all changes with it
             OnItemDropped?.Invoke(this, new OnItemDroppedEventArgs { item = item });

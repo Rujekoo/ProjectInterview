@@ -86,7 +86,7 @@ public class CharacterEquipment : MonoBehaviour
 
     public void TryEquipItem(ItemType equipSlot, Item item)
     {
-        if(equipSlot == item.type)
+        if(equipSlot == item.type && item.state == ActionType.Owned)
         {
             equipCheck = true;
         }

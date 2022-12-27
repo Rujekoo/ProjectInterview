@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.EventSystems;
 
 public class Shopkeeper : MonoBehaviour
 {
     public static Shopkeeper instance;
-    [SerializeField] private GameObject shopUi;
+    [SerializeField] public GameObject shopUi;
     public InvnetorySlot[] invnetorySlots;
     private List<BasketItem> products = new List<BasketItem>();
     private InvnetorySlot slot;
     public double totalGold;
+    public double sellPenalty;
+    public TextMeshProUGUI showTotalGold;
 
 
     private void Awake() 
@@ -39,11 +42,23 @@ public class Shopkeeper : MonoBehaviour
             slot = invnetorySlots[i];
             BasketItem itemInSlot = slot.GetComponentInChildren<BasketItem>();
 
-            if(itemInSlot != null)
+            if(itemInSlot != null && itemInSlot.item.state == ActionType.NotOwned)
             {
                 totalGold = totalGold + itemInSlot.item.cost;
-                products.Add(itemInSlot);
-                Destroy(itemInSlot.gameObject);                       
+                showTotalGold.SetText("- " + totalGold.ToString("F2"));
+
+                if(GoldManager.instance.currentGoldAmount > totalGold)
+                {
+                    itemInSlot.item.state = ActionType.Owned;
+                    products.Add(itemInSlot);
+                    Destroy(itemInSlot.gameObject);
+                }  
+
+                else
+                {
+                    totalGold = totalGold - itemInSlot.item.cost;
+                    showTotalGold.SetText("- " + totalGold.ToString("F2"));
+                }                                
             }  
         }
 
@@ -54,4 +69,26 @@ public class Shopkeeper : MonoBehaviour
         }
         products.Clear();
     }  
+
+    public void SellProducts ()
+    {
+        for (int i = 0; i < invnetorySlots.Length; i++)
+        {
+            slot = invnetorySlots[i];
+            BasketItem itemInSlot = slot.GetComponentInChildren<BasketItem>();
+
+            if(itemInSlot != null && itemInSlot.item.state == ActionType.Owned)
+            {
+                itemInSlot.item.state = ActionType.NotOwned;
+                itemInSlot.item.count = 0;
+                sellPenalty = itemInSlot.item.cost * 0.8;
+                totalGold = totalGold + sellPenalty;
+                showTotalGold.SetText("+ " + totalGold.ToString("F2"));
+                Destroy(itemInSlot.gameObject);                       
+            }  
+        }
+
+        totalGold = totalGold - (totalGold * 2);
+        GoldManager.instance.UpdateGoldAmount();
+    }
 }

@@ -16,6 +16,7 @@ public class CharacterEquipmentSlot : MonoBehaviour, IDropHandler
         {
             BasketItem basketItem = eventData.pointerDrag.GetComponent<BasketItem>();
             basketItem.parentAfterDrag = transform;
+            OwnerIndicator.instance.SetOwnerIndicator();
         }
    }
 }

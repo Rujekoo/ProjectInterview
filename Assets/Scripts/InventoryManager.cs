@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 
     public static InventoryManager instance;
 
-    public InvnetorySlot[] invnetorySlots;
+    public InvnetorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public InvnetorySlot slot;
     public GameObject player;
@@ -19,29 +19,16 @@ public class InventoryManager : MonoBehaviour
     
     public bool AddItem(Item item)
     {
-        //Check if item has been bought and if so add icon
-        /*for (int i = 0; i < invnetorySlots.Length; i++)
-        {
-            InvnetorySlot slot = invnetorySlots[i];
-            BasketItem itemInSlot = slot.GetComponentInChildren<BasketItem>();
-
-            if()
-            {
-                itemInSlot.bought = true;
-                itemInSlot.RefreshBoughtIcon();
-                return true;
-            }
-        }*/
-
         //Find an empty slot
-        for (int i = 0; i < invnetorySlots.Length; i++)
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
-            slot = invnetorySlots[i];
+            slot = inventorySlots[i];
             BasketItem itemInSlot = slot.GetComponentInChildren<BasketItem>();
 
             if(itemInSlot == null && i < 8)
             {
                 SpawnNewItem(item, slot);
+                OwnerIndicator.instance.SetOwnerIndicator();
                 return true;
             }
         }
@@ -54,6 +41,23 @@ public class InventoryManager : MonoBehaviour
         BasketItem basketItem = newItemGo.GetComponent<BasketItem>();
 
         basketItem.InitialiseItem(item);
+    }
+
+    public void EmptyBasket ()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            slot = inventorySlots[i];
+            BasketItem itemInSlot = slot.GetComponentInChildren<BasketItem>();
+
+            if(itemInSlot != null && itemInSlot.item.state == ActionType.NotOwned)
+            {
+                itemInSlot.item.count = 0;
+                Destroy(itemInSlot.gameObject);
+            }       
+        }
+        OwnerIndicator.instance.SetDefaultIndicator();
+        OwnerIndicator.instance.SetOwnerIndicator();
     }
 
     public void PausePlayer ()
