@@ -43,9 +43,15 @@ public class Shopkeeper : MonoBehaviour
             {
                 totalGold = totalGold + itemInSlot.item.cost;
                 products.Add(itemInSlot);
-
+                Destroy(itemInSlot.gameObject);                       
             }  
         }
+
         GoldManager.instance.UpdateGoldAmount();
+        for (int i = 0; i < products.Count; i++)
+        {
+            InventoryManager.instance.AddItem(products[i].item);
+        }
+        products.Clear();
     }  
 }

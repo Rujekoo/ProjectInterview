@@ -45,7 +45,6 @@ public class InventoryManager : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 

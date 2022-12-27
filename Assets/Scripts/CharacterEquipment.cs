@@ -6,14 +6,6 @@ public class CharacterEquipment : MonoBehaviour
 {
     public static CharacterEquipment instance;
 
-    public enum EquipSlot
-    {
-        Headgear,
-        Torso,
-        Legs,
-        Feet
-    }
-
     private Item headItem;
     private Item torsoItem;
     private Item legsItem;

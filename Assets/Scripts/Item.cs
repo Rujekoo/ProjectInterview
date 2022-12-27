@@ -11,7 +11,6 @@ public class Item : ScriptableObject
     [Header("Only gameplay")]
     public double cost;
     public ItemType type;
-    public ActionType state;
     public AnimatorController animation;
 
     [Header("Both")]
@@ -26,8 +25,3 @@ public enum ItemType
     Feet
 }
 
-public enum ActionType
-{
-    Bought,
-    Not
-}

@@ -31,6 +31,7 @@ public class GoldManager : MonoBehaviour
     public void UpdateGoldAmount ()
     {
         currentGoldAmount = currentGoldAmount - Shopkeeper.instance.totalGold;
+        Shopkeeper.instance.totalGold = 0;
         RefreshGoldTracker(currentGoldAmount);
     }
 }
