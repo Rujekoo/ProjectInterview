@@ -39,7 +39,7 @@ public class InventoryManager : MonoBehaviour
             slot = invnetorySlots[i];
             BasketItem itemInSlot = slot.GetComponentInChildren<BasketItem>();
 
-            if(itemInSlot == null)
+            if(itemInSlot == null && i < 8)
             {
                 SpawnNewItem(item, slot);
                 return true;
@@ -53,11 +53,6 @@ public class InventoryManager : MonoBehaviour
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform); 
         BasketItem basketItem = newItemGo.GetComponent<BasketItem>();
-
-        /*if (basketItem.item.type == ItemType.Feet)
-        {
- 
-        }*/
 
         basketItem.InitialiseItem(item);
     }

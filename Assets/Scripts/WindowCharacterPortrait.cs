@@ -10,7 +10,7 @@ public class WindowCharacterPortrait : MonoBehaviour
     private void Awake()
     {
         cameraTransform = transform.Find("camera");
-        Hide();
+        //Hide();
     }
 
     private void Update() 

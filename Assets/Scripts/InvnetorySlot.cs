@@ -20,12 +20,9 @@ public class InvnetorySlot : MonoBehaviour, IDropHandler
             basketItem.parentAfterDrag = transform;
 
             Item item = basketItem.GetItem();
-            OnItemDropped?.Invoke(this, new OnItemDroppedEventArgs { item = item });
 
-            if (basketItem.item.type == ItemType.Feet)
-            {
-                Debug.Log ("Feet Dropped");
-            }
+            //Invokes the item drop and all changes with it
+            OnItemDropped?.Invoke(this, new OnItemDroppedEventArgs { item = item });
         }
    }
 }
