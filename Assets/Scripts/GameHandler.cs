@@ -6,15 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
+    public static GameHandler instance;
     [SerializeField] private WindowCharacterPortrait windowCharacterPortrait;
     [SerializeField] private Transform characterTransform;
     public Item[] items;
+    public double[] itemBasePrices;
     public TextMeshProUGUI[] itemCost;
 
     private void Awake() 
     {
+        instance = this;
         SetItemCount ();
-        SetupStorePrices();
+        SetItemBasePrices ();
+        SetupStorePrices ();
         ResetItemActionType ();
     }
     private void Start() 
@@ -27,6 +31,22 @@ public class GameHandler : MonoBehaviour
         for (int i = 0; i < items.Length; i++)
         {
             items[i].count = 0;
+        }
+    }
+
+    public void SetItemBasePrices ()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            itemBasePrices[i] = items[i].cost;
+        }
+    }
+
+    public void ResetItemPrices ()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+             items[i].cost = itemBasePrices[i];
         }
     }
 

@@ -49,6 +49,7 @@ public class CharacterEquipment : MonoBehaviour
                 equipmentSlots[0].GetComponent<Animator>().runtimeAnimatorController = anim[i] as RuntimeAnimatorController;
             }
         }
+        AudioManager.instance.PlaySFX("Equip");
     }
 
     public void SetTorsoItem()
@@ -60,6 +61,7 @@ public class CharacterEquipment : MonoBehaviour
                 equipmentSlots[1].GetComponent<Animator>().runtimeAnimatorController = anim[i] as RuntimeAnimatorController;
             }
         }
+        AudioManager.instance.PlaySFX("Equip");
     }
 
     public void SetLegsItem()
@@ -71,6 +73,7 @@ public class CharacterEquipment : MonoBehaviour
                 equipmentSlots[2].GetComponent<Animator>().runtimeAnimatorController = anim[i] as RuntimeAnimatorController;
             }
         }
+        AudioManager.instance.PlaySFX("Equip");
     }
 
     public void SetFeetItem()
@@ -82,6 +85,7 @@ public class CharacterEquipment : MonoBehaviour
                 equipmentSlots[3].GetComponent<Animator>().runtimeAnimatorController = anim[i] as RuntimeAnimatorController;
             }
         }
+        AudioManager.instance.PlaySFX("Equip");
     }
 
     public void TryEquipItem(ItemType equipSlot, Item item)

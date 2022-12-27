@@ -21,6 +21,7 @@ public class InvnetorySlot : MonoBehaviour, IDropHandler
 
             Item item = basketItem.GetItem();
             OwnerIndicator.instance.SetOwnerIndicator();
+            AudioManager.instance.PlaySFX("Click");
 
             //Invokes the item drop and all changes with it
             OnItemDropped?.Invoke(this, new OnItemDroppedEventArgs { item = item });

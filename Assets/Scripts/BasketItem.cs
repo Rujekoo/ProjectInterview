@@ -54,6 +54,7 @@ public class BasketItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         image.raycastTarget = true;
         transform.SetParent(parentAfterDrag);
         OwnerIndicator.instance.SetOwnerIndicator();
+        AudioManager.instance.PlaySFX("Click");
     }
 
     public Item GetItem()
