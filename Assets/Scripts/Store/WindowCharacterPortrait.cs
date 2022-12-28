@@ -10,9 +10,9 @@ public class WindowCharacterPortrait : MonoBehaviour
     private void Awake()
     {
         cameraTransform = transform.Find("camera");
-        //Hide();
     }
 
+    //Live Character Portrait UI
     private void Update() 
     {
         cameraTransform.position = new Vector3(followTransform.position.x, followTransform.position.y + correction, Camera.main.transform.position.z);

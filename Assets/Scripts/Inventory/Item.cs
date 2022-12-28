@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEditor.Animations;
 
 [CreateAssetMenu(menuName ="Scriptable object/Item")]
 public class Item : ScriptableObject
@@ -13,7 +12,7 @@ public class Item : ScriptableObject
     public int count;
     public ItemType type;
     public ActionType state;
-    public AnimatorController animation;
+    public RuntimeAnimatorController animation;
 
     [Header("Both")]
     public Sprite image;

@@ -28,6 +28,7 @@ public class GameHandler : MonoBehaviour
 
     public void SetItemCount ()
     {
+        //Ensure player can not buy more than 1 item
         for (int i = 0; i < items.Length; i++)
         {
             items[i].count = 0;

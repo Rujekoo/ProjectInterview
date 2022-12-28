@@ -37,6 +37,7 @@ public class Shopkeeper : MonoBehaviour
 
     public void BuyProducts ()
     {
+        //Check the item added to store inventory, do checks and if correct, buy item
         for (int i = 0; i < invnetorySlots.Length; i++)
         {
             slot = invnetorySlots[i];
@@ -72,6 +73,7 @@ public class Shopkeeper : MonoBehaviour
 
     public void SellProducts ()
     {
+        //If item is owned, sell it
         for (int i = 0; i < invnetorySlots.Length; i++)
         {
             slot = invnetorySlots[i];

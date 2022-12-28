@@ -66,14 +66,4 @@ public class UICharacterEquipment : MonoBehaviour
             CharacterEquipment.instance.equipCheck = false;
         }
     }
-
-    public void SetCharacterEquipment(CharacterEquipment characterEquipment)
-    {
-        this.characterEquipment = characterEquipment;
-    }
-
-    private void UpdateVisual()
-    {
-
-    }
 }

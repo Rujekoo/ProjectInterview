@@ -18,6 +18,7 @@ public class OwnerIndicator : MonoBehaviour
     }
     public void SetOwnerIndicator ()
     {
+        //Handle the indicators to show if you bought or have yet to buy an item
         for (int i = 0; i < InventoryManager.instance.inventorySlots.Length; i++)
         {
             slot = InventoryManager.instance.inventorySlots[i];

@@ -18,6 +18,7 @@ public class StoreManager : MonoBehaviour
         instance = this;
     }
 
+    //Open Shop UI
     public void OpenTorsoShopUI ()
     {
         if(PlayerAction.instance.triggerZoneName.Equals("TorsoActivationZone"))
@@ -62,6 +63,7 @@ public class StoreManager : MonoBehaviour
         }
     }
 
+    //Close Shop UI
     public void CloseTorsoShopUI ()
     {
         torsoShopUi.SetActive(false);

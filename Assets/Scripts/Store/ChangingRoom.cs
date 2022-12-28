@@ -13,9 +13,4 @@ public class ChangingRoom : MonoBehaviour
     {
         instance = this;
     }
-
-    public void GetPlayerSprites ()
-    {
-
-    }
 }

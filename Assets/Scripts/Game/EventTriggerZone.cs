@@ -13,12 +13,12 @@ public class EventTriggerZone : MonoBehaviour
         instance = this;
     }
 
+    //Check if the player is in the activation zone to enable access to stores 
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other)
         {
             triggerZoneEntered = true;
-            Debug.Log ("Activated");
         }
     }
     
@@ -27,7 +27,6 @@ public class EventTriggerZone : MonoBehaviour
         if(other)
         {
             triggerZoneEntered = true;
-            Debug.Log ("Activated");
         }
     }
 }

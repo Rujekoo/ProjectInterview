@@ -31,6 +31,7 @@ public class GoldManager : MonoBehaviour
 
     private void Update() 
     {
+        //Timer for the Trend Minigame
         if(timerOn)
         {       
             if(timeLeft > 0)
@@ -39,7 +40,6 @@ public class GoldManager : MonoBehaviour
             }
             else
             {
-                Debug.Log ("Timer Up");
                 GameHandler.instance.ResetItemPrices();
                 startTrendCheck = true;
                 timeLeft = Random.Range(20, 40);
@@ -52,6 +52,7 @@ public class GoldManager : MonoBehaviour
             } 
         }
 
+        //Pause Menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             StoreManager.instance.pauseMenu.SetActive(true);
@@ -85,6 +86,7 @@ public class GoldManager : MonoBehaviour
 
     public void SetTrend ()
     {
+        //Randomize between sale/trend, which item it affects and by how much
         randomTrend = Random.Range(0, 5);
         if(randomTrend < 3)
         {
@@ -101,12 +103,12 @@ public class GoldManager : MonoBehaviour
             GameHandler.instance.items[trendItemAffected].cost = (GameHandler.instance.itemBasePrices[trendItemAffected] + ((GameHandler.instance.itemBasePrices[trendItemAffected] / 100) * randomPercentage));
             RefreshShopCostUI();
         }
-        Debug.Log ("Trend Started: " + GameHandler.instance.items[trendItemAffected]);
         TrendBoard ();
     }
 
     public void RefreshShopCostUI ()
     {
+        //Reset original store cost UI
         for (int i = 0; i <  GameHandler.instance.items.Length; i++)
         {
             for (int a = 0; a <  GameHandler.instance.itemCost.Length; a++)
@@ -121,6 +123,7 @@ public class GoldManager : MonoBehaviour
 
     public void TrendBoard ()
     {
+        //Display the trend/sale
         if (randomTrend < 3)
         {
             trendAlert.SetText("Sale! " + GameHandler.instance.items[trendItemAffected].name + " is now only " + GameHandler.instance.items[trendItemAffected].cost.ToString("F2") + " Gold!");
@@ -129,6 +132,7 @@ public class GoldManager : MonoBehaviour
         else
         {
             trendAlert.SetText("New Trend! " + GameHandler.instance.items[trendItemAffected].name + " has become " + GameHandler.instance.items[trendItemAffected].cost.ToString("F2") + " Gold!");
-        }      
+        }  
+        AudioManager.instance.PlaySFX("Message");    
     }    
 }

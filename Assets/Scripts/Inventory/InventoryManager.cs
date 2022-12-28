@@ -60,6 +60,7 @@ public class InventoryManager : MonoBehaviour
         OwnerIndicator.instance.SetOwnerIndicator();
     }
 
+    //Stop player movement during menus/stores
     public void PausePlayer ()
     {
         player.GetComponent<PlayerMovement>().enabled = false;

@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMovement(InputValue value)
     {
+        //Animations control
         movement = value.Get<Vector2>();
 
         if (movement.x != 0 || movement.y != 0)

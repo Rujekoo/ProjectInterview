@@ -20,26 +20,7 @@ public class CharacterEquipment : MonoBehaviour
         instance = this;
     }
 
-    public Item GetHeadItem()
-    {
-        return headItem;
-    }
-
-    public Item GetTorsoItem()
-    {
-        return torsoItem;
-    }
-
-    public Item GetLegsItem()
-    {
-        return legsItem;
-    }
-
-    public Item GetFeetItem()
-    {
-        return feetItem;
-    }
-
+    //Check to see if the item place in each slot corresponds with the correct slot, then change equipment if true
     public void SetHeadItem()
     {
         for (int i = 0; i < anim.Length; i++)
@@ -88,6 +69,7 @@ public class CharacterEquipment : MonoBehaviour
         AudioManager.instance.PlaySFX("Equip");
     }
 
+    //Check if the item has been bought or not
     public void TryEquipItem(ItemType equipSlot, Item item)
     {
         if(equipSlot == item.type && item.state == ActionType.Owned)
