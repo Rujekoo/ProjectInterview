@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad5dbc3a10fc07478f5cc1f0d0c62a2, type: 3}
   m_Name: White Slippers
   m_EditorClassIdentifier: 
-  cost: 17.5
+  cost: 23
+  count: 0
   type: 3
-  state: 0
+  state: 1
   animation: {fileID: 9100000, guid: 5fe7a43aca934b645b28db08c7dfc271, type: 2}
   image: {fileID: 21300000, guid: eefd733afef8f3d4bad610d05f8a67d9, type: 3}

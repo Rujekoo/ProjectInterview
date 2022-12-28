@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad5dbc3a10fc07478f5cc1f0d0c62a2, type: 3}
   m_Name: White Tunic
   m_EditorClassIdentifier: 
-  cost: 12.5
+  cost: 27.5
+  count: 0
   type: 1
-  state: 0
+  state: 1
   animation: {fileID: 9100000, guid: 9fe4cd0c2059879438551c878e3358d7, type: 2}
   image: {fileID: 21300000, guid: 4e2691e14664a0c48b63012fb4fe8696, type: 3}

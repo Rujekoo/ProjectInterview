@@ -5,12 +5,18 @@ using UnityEngine.EventSystems;
 
 public class StoreManager : MonoBehaviour
 {
+    public static StoreManager instance;
     [SerializeField] private GameObject torsoShopUi;
     [SerializeField] private GameObject headgearShopUi;
     [SerializeField] private GameObject feetShopUi;
     [SerializeField] private GameObject legsShopUi;
     [SerializeField] private GameObject changingRoomShopUi;
+    [SerializeField] public GameObject pauseMenu;
 
+    private void Awake() 
+    {
+        instance = this;
+    }
 
     public void OpenTorsoShopUI ()
     {
@@ -83,6 +89,12 @@ public class StoreManager : MonoBehaviour
     public void CloseChangingRoomUI ()
     {
         changingRoomShopUi.SetActive(false);
+        InventoryManager.instance.ResumePlayer();
+    }
+
+    public void ClosePauseMenu ()
+    {
+        pauseMenu.SetActive(false);
         InventoryManager.instance.ResumePlayer();
     }
 }
